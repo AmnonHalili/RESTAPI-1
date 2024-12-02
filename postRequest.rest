@@ -29,29 +29,4 @@ Content-Type: application/json
 
 
 
-### הוספת תגובה
-POST http://localhost:3000/comments
-Content-Type: application/json
 
-{
-    "postId": "POST_ID_HERE",
-    "content": "זוהי תגובה.",
-    "commenter": "CommenterName"
-}
-
-### קבלת כל התגובות
-GET http://localhost:3000/comments
-
-### קבלת תגובות לפי פוסט
-GET http://localhost:3000/comments?post=POST_ID_HERE
-
-### עדכון תגובה
-PUT http://localhost:3000/comments/COMMENT_ID_HERE
-Content-Type: application/json
-
-{
-    "content": "Content"
-}
-
-### מחיקת תגובה
-DELETE http://localhost:3000/comments/COMMENT_ID_HERE
