@@ -3,8 +3,8 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "פוסט ראשון",
-    "content": "זהו התוכן של הפוסט הראשון.",
+    "title": "פוסט שני",
+    "content": "זהו התוכן של הפוסט השני.",
     "sender": "User123",
     "ID": "315186346"
 }
@@ -13,19 +13,21 @@ Content-Type: application/json
 GET http://localhost:3000/posts
 
 ### קבלת פוסט לפי ID
-GET http://localhost:3000/post/315186346
+GET http://localhost:3000/posts/674dcf9740b0832bdb3a4e1a
 
-### קבלת פוסטים לפי שולח
-GET http://localhost:3000/post?sender=User123
 
 ### עדכון פוסט
-PUT http://localhost:3000/post/242725751
+PUT http://localhost:3000/posts/674dcf9740b0832bdb3a4e1a
 Content-Type: application/json
 
 {
-    "title": "Title",
-    "content": "Content"
+    "title": "פוסט מעודכן",
+    "content": "זהו התוכן של הפוסט השני.",
+    "sender": "User123"
+   
 }
+
+
 
 ### הוספת תגובה
 POST http://localhost:3000/comments
