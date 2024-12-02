@@ -1,0 +1,34 @@
+
+###
+GET http://localhost:3001/comment
+
+###
+GET http://localhost:3001/comment/6747336ff957d508383435cc
+
+###
+GET http://localhost:3001/comment?postId=6747266ffb5681120bb550f5
+
+###
+POST  http://localhost:3001/comment
+Content-Type: application/json
+
+{
+    "postId": "6747266ffb5681120bb550f5",
+    "content":"This is my first comment",
+    "owner":"Itai2"
+}
+
+###
+PUT  http://localhost:3001/comment/6747336ff957d508383435cc
+Content-Type: application/json
+
+{
+    "title": "My updated comment",
+    "content": "This is my updated comment"
+}
+
+###
+DELETE  http://localhost:3001/comment/674736544902d158c2a80164
+Content-Type: application/json
+
+
