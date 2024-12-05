@@ -13,11 +13,11 @@ Content-Type: application/json
 GET http://localhost:3000/posts
 
 ### קבלת פוסט לפי ID
-GET http://localhost:3000/posts/674dcf9740b0832bdb3a4e1a
+GET http://localhost:3000/posts/6750b87da5eab69cbd1e7add
 
 
 ### עדכון פוסט
-PUT http://localhost:3000/posts/674dcf9740b0832bdb3a4e1a
+PUT http://localhost:3000/posts/6750b87da5eab69cbd1e7add
 Content-Type: application/json
 
 {

@@ -1,53 +1,65 @@
-
-const mongoose = require('mongoose');
-const Post = require('../models/postModel');
+const Posts = require("../models/postModel");
+const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
+    console.log(req.body);
     try {
-        const newPost = new Post(req.body);
-        const savedPost = await newPost.save();
-        res.status(201).json(savedPost);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
+        const post = await Posts.create(req.body);
+        res.status(201).send(post);
+    }
+    catch (err) {
+        res.status(400).send(err.message);
     }
 };
 
 const getAllPosts = async (req, res) => {
+    const filter = req.query;
+    console.log(filter);
     try {
-        const posts = await Post.find();
-        res.json(posts);
+        if (filter.owner) {
+            const posts = await Posts.find({ owner: filter.owner });
+            return res.send(posts);
+        }
+        else {
+            const posts = await Posts.find()
+            return res.send(posts);
+        }
+    }
+    catch (err) { return res.status(400).send(err.message); }
+};
+
+const getPostById = async (req, res) => {
+    const postId = req.params.id;
+    try {
+        const post = await Posts.findById(postId);
+        if (post === null) {
+            return res.status(404).send("post not found");
+        } else {
+            return res.status(200).send(post);
+        }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.log(err)
+        res.status(404).send(err);
     }
 };
 
-const updatePost= async (req, res) => {
-  const postId=req.params.id;
-  if (!mongoose.Types.ObjectId.isValid(postId)){
-    return res.status(404).send('invalid post id');
-  }
+const updatePost = async (req, res) => {
+    const postId = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(postId)) {
+        return res.status(400).send("Invalid post ID format");
+    }
+
     try {
-        const updatePost = await Post.findByIdAndUpdate(postId, req.body, { new: true, runValidators: true });
-        if (!updatePost) {
-            return res.status(404).send('Post not found');
+        const updatedPost = await Posts.findByIdAndUpdate(postId, req.body, { new: true, runValidators: true });
+
+        if (!updatedPost) {
+            return res.status(404).send("Post not found");
         }
-        res.send(updatePost);}
-    catch(err){
+
+        res.send(updatedPost);
+    } catch (err) {
         res.status(400).send(err.message);
     }
-}
+};
 
-const getPostById = async (req, res) => {
-   try{ const post = await Post.findById(req.params.id);
-    if (post == null) {
-        return res.status(404).json({ message: 'Post not found' });
-    }else{
-        return res.status(200).send(post);
-    }}
-    catch(err){
-        res.status(404).send(err);
-    }
-}
-
-
-module.exports = { createPost, getAllPosts, updatePost ,getPostById};
+module.exports = { createPost, getAllPosts, updatePost, getPostById };

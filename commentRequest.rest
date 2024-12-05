@@ -1,25 +1,25 @@
 
 ###
-GET http://localhost:3001/comment
+GET http://localhost:3000/comments
 
 ###
-GET http://localhost:3001/comment/6747336ff957d508383435cc
+GET http://localhost:3000/comments/675178df1d6cb1420579443b
 
 ###
-GET http://localhost:3001/comment?postId=6747266ffb5681120bb550f5
+GET http://localhost:3000/comments?postId=6750b8c5ff981fbd3917a089
 
 ###
-POST  http://localhost:3001/comment
+POST  http://localhost:3000/comments
 Content-Type: application/json
 
 {
-    "postId": "6747266ffb5681120bb550f5",
+    "postId": "6750b8c5ff981fbd3917a089",
     "content":"This is my first comment",
     "owner":"Itai2"
 }
 
 ###
-PUT  http://localhost:3001/comment/6747336ff957d508383435cc
+PUT  http://localhost:3000/comments/675178df1d6cb1420579443b
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:3001/comment/674736544902d158c2a80164
+DELETE  http://localhost:3000/comments/675178df1d6cb1420579443b
 Content-Type: application/json
 
 

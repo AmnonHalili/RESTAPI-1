@@ -2,11 +2,11 @@ const Comment = require('../models/commentModel');
 const mongoose = require('mongoose');
 
 const addNewComment = async (req, res) => {
-console.log(req.body);
+    console.log(req.body);
 
-try {
-    const comment = await Comment.create(req.body);
-    res.status(201).send(comment);
+    try {
+        const comment = await Comment.create(req.body);
+        res.status(201).send(comment);
     }
 
     catch (err) {
@@ -92,4 +92,4 @@ const updateComment = async (req, res) => {
 
 
 
-module.exports = { AddANewComment, getAllComments, getCommentById, deleteComment, updateComment };
+module.exports = { addNewComment, getAllComments, getCommentById, deleteComment, updateComment };
