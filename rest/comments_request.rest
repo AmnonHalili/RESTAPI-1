@@ -1,0 +1,35 @@
+
+###
+GET http://localhost:3000/comments
+
+###
+GET http://localhost:3000/comments/6756f9e72293a1901c6eb94d
+
+###
+GET http://localhost:3000/comments?postId=674f0eb7c8ec098c8fd76400
+
+###
+POST  http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "postId": "674f0eb7c8ec098c8fd76400",
+    "comment":"This is my first comment",
+    "owner":"Amnon"
+}
+
+###
+PUT  http://localhost:3000/comments/6756fb509e63a9f4710774da
+Content-Type: application/json
+
+{
+    "title": "My update comment",
+    "content": "This is my updated comment"
+}
+
+###
+DELETE  http://localhost:3000/comments/6756fb509e63a9f4710774da
+Content-Type: application/json
+
+
+
