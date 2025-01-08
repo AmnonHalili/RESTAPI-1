@@ -1,0 +1,34 @@
+### Register a new user
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "email": "newuser@example.com",
+    "password": "securepassword123"
+}
+
+### User login
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "newuser@example.com",
+    "password": "securepassword123"
+}
+
+### Get all users (if implemented)
+GET http://localhost:3000/users
+
+### Get a specific user by ID (if implemented)
+GET http://localhost:3000/users/123456789012345678901234
+
+### Update a user (if implemented)
+PUT http://localhost:3000/users/123456789012345678901234
+Content-Type: application/json
+
+{
+    "email": "updatedemail@example.com"
+}
+
+### Delete a user (if implemented)
+DELETE http://localhost:3000/users/123456789012345678901234

@@ -1,0 +1,31 @@
+
+###
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVmZmVmZGJmOTQ2ZmE1YTQ2NmVhNTgiLCJpYXQiOjE3MzQzNDQ2NTYsImV4cCI6MTczNDQzMTA1Nn0._CNMp0ZDgwGStLUrga7rA6i2en9ZRl6589O0FiopMfQ
+###
+GET http://localhost:3000/posts/674f0eb7c8ec098c8fd76400
+
+###
+GET http://localhost:3000/posts?owner=gil1234
+
+
+###
+POST  http://localhost:3000/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVmZmVmZGJmOTQ2ZmE1YTQ2NmVhNTgiLCJpYXQiOjE3MzQzNDQ2NTYsImV4cCI6MTczNDQzMTA1Nn0._CNMp0ZDgwGStLUrga7rA6i2en9ZRl6589O0FiopMfQ
+
+{
+    "title": "my third post",
+    "content":"This is my third post",
+    "owner":"Amnon Halili"
+}
+
+###
+PUT  http://localhost:3000/posts/674f0eb7c8ec098c8fd76400
+Content-Type: application/json
+
+{
+    "title": "My update post",
+    "content": "This is my update post",
+    "owner": "Amnon"
+}
